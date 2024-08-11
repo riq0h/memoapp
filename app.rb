@@ -3,16 +3,32 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'json'
+require 'securerandom'
+require 'rack/protection'
+require 'rack/utils'
 
-FILE_PATH = 'public/memos.json'
+use Rack::Protection
+
+helpers do
+  include Rack::Utils
+  alias_method :h, :escape_html
+end
+
+FILE_PATH = 'memos.json' # publicフォルダから移動
 
 def load_memos
-  File.exist?(FILE_PATH) ? JSON.parse(File.read(FILE_PATH)) : {}
+  if File.exist?(FILE_PATH) && !File.zero?(FILE_PATH)
+    JSON.parse(File.read(FILE_PATH))
+  else
+    {}
+  end
+rescue JSON::ParserError
+  {}
 end
 
 def save_memos(memos)
   File.open(FILE_PATH, 'w') do |file|
-    file.write(JSON.pretty_generate(memos))
+    file.write(JSON.generate(memos))
   end
 end
 
@@ -31,8 +47,8 @@ end
 
 post '/memos' do
   memos = load_memos
-  id = (memos.keys.map(&:to_i).max || 0) + 1
-  memos[id.to_s] = { 'title' => params[:title], 'content' => params[:content] }
+  id = SecureRandom.uuid
+  memos[id] = { 'title' => h(params[:title]), 'content' => h(params[:content]) }
   save_memos(memos)
   redirect '/memos'
 end
@@ -52,7 +68,7 @@ end
 patch '/memos/:id' do
   memos = load_memos
   halt 404, erb(:not_found) unless memos[params[:id]]
-  memos[params[:id]] = { 'title' => params[:title], 'content' => params[:content] }
+  memos[params[:id]] = { 'title' => h(params[:title]), 'content' => h(params[:content]) }
   save_memos(memos)
   redirect "/memos/#{params[:id]}"
 end

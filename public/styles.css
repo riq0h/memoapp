@@ -120,7 +120,7 @@ form button.back:hover {
 .memo-actions {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 10px; /* 追加: 「戻る」ボタンの上に余白を追加 */
 }
 
 .memo-actions form {
@@ -136,7 +136,7 @@ form button.back:hover {
 }
 
 .memo-actions .edit {
-  background-color: #28a745;
+  background-color: #28a745; /* 緑色に統一 */
 }
 
 .memo-actions .edit:hover {
