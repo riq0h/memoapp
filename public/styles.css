@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #007bff;
-  --success-color: #28a745;
-  --danger-color: #dc3545;
-  --secondary-color: #6c757d;
+  --save-color: #007bff;
+  --edit-color: #28a745;
+  --delete-color: #dc3545;
+  --back-color: #6c757d;
 }
 
 body {
@@ -42,7 +42,7 @@ nav {
 nav a {
   margin: 0 10px;
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--save-color);
 }
 
 nav a:hover {
@@ -83,19 +83,19 @@ form textarea {
 }
 
 .button.save {
-  background-color: var(--primary-color);
+  background-color: var(--save-color);
 }
 
 .button.delete {
-  background-color: var(--danger-color);
+  background-color: var(--delete-color);
 }
 
 .button.edit {
-  background-color: var(--success-color);
+  background-color: var(--edit-color);
 }
 
 .button.back {
-  background-color: var(--secondary-color);
+  background-color: var(--back-color);
   margin-top: 10px;
   display: block;
   margin: 10px auto 0;
@@ -113,7 +113,7 @@ form textarea {
 
 .memo-list a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--save-color);
 }
 
 .memo-list a:hover {
