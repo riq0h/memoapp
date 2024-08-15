@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #007bff;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --secondary-color: #6c757d;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
@@ -35,7 +42,7 @@ nav {
 nav a {
   margin: 0 10px;
   text-decoration: none;
-  color: #007bff;
+  color: var(--primary-color);
 }
 
 nav a:hover {
@@ -59,44 +66,40 @@ form textarea {
   border-radius: 4px;
 }
 
-form button {
+.button {
   padding: 10px;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
 }
 
-form button.save {
-  background-color: #007bff;
+.button:hover {
+  opacity: 0.9;
 }
 
-form button.save:hover {
-  background-color: #0056b3;
+.button.save {
+  background-color: var(--primary-color);
 }
 
-form button.delete {
-  background-color: #dc3545;
+.button.delete {
+  background-color: var(--danger-color);
 }
 
-form button.delete:hover {
-  background-color: #c82333;
+.button.edit {
+  background-color: var(--success-color);
 }
 
-form button.edit {
-  background-color: #28a745;
-}
-
-form button.edit:hover {
-  background-color: #218838;
-}
-
-form button.back {
-  background-color: #6c757d;
-}
-
-form button.back:hover {
-  background-color: #5a6268;
+.button.back {
+  background-color: var(--secondary-color);
+  margin-top: 10px;
+  display: block;
+  margin: 10px auto 0;
+  box-sizing: border-box;
 }
 
 .memo-list {
@@ -110,7 +113,7 @@ form button.back:hover {
 
 .memo-list a {
   text-decoration: none;
-  color: #007bff;
+  color: var(--primary-color);
 }
 
 .memo-list a:hover {
@@ -123,27 +126,18 @@ form button.back:hover {
   margin-bottom: 10px;
 }
 
-.memo-actions form {
-  display: inline;
+.memo-actions form,
+.memo-actions a {
+  flex: 1;
+  margin: 0 5px;
 }
 
-.memo-actions button {
-  padding: 10px;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.memo-actions form:first-child,
+.memo-actions a:first-child {
+  margin-left: 0;
 }
 
-.memo-actions .edit {
-  background-color: #28a745;
+.memo-actions form:last-child,
+.memo-actions a:last-child {
+  margin-right: 0;
 }
-
-.memo-actions .edit:hover {
-  background-color: #218838;
-}
-
-.memo-actions .back {
-  background-color: #6c757d;
-}
-
