@@ -88,6 +88,8 @@ form textarea {
 
 .button.delete {
   background-color: var(--delete-color);
+  padding: 12px;
+  font-size: 90%;
 }
 
 .button.edit {
