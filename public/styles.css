@@ -1,0 +1,145 @@
+:root {
+  --save-color: #007bff;
+  --edit-color: #28a745;
+  --delete-color: #dc3545;
+  --back-color: #6c757d;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 300px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+nav {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--save-color);
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 10px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button.save {
+  background-color: var(--save-color);
+}
+
+.button.delete {
+  background-color: var(--delete-color);
+  padding: 12px;
+  font-size: 90%;
+}
+
+.button.edit {
+  background-color: var(--edit-color);
+}
+
+.button.back {
+  background-color: var(--back-color);
+  margin-top: 10px;
+  display: block;
+  margin: 10px auto 0;
+  box-sizing: border-box;
+}
+
+.memo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.memo-list li {
+  margin-bottom: 10px;
+}
+
+.memo-list a {
+  text-decoration: none;
+  color: var(--save-color);
+}
+
+.memo-list a:hover {
+  text-decoration: underline;
+}
+
+.memo-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.memo-actions form,
+.memo-actions a {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.memo-actions form:first-child,
+.memo-actions a:first-child {
+  margin-left: 0;
+}
+
+.memo-actions form:last-child,
+.memo-actions a:last-child {
+  margin-right: 0;
+}
