@@ -1,3 +1,4 @@
+CREATE DATABASE memo_app;
 DROP TABLE IF EXISTS memos;
 \c memo_app
 CREATE TABLE memos (
